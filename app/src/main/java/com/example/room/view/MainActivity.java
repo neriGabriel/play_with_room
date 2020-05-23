@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         this.btnGetAll = findViewById(R.id.btnGetAll);
         this.recyclerView = findViewById(R.id.recyclerView);
 
+        //Pego a conexão seguindo o padrão singleton
         this.connection = DatabaseConnection.getInstance(this);
 
 
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 PlayGame playGame = new PlayGame("Wings of Misadventures", 500, "Its a game");
+                //Chamando uma acao a partir da interface e a referencia ao dao
                 connection.playGameDao().insert(playGame);
             }
         });
